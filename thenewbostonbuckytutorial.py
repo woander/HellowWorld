@@ -159,3 +159,121 @@ for n in range(101):
     else:
         print(n)
 
+# bucky's test
+# make a program to loop through the numbers 1 to 100 and
+# print out any number that is a multiple of 4
+for n in range(101):
+    if n%4 is 0:
+        print(n)
+
+# continue
+# continue skips whatever is underneath it only when if statement is met
+# and starts the next item in a loop
+numbers_taken = [2, 5, 12, 13, 17]
+print('Here are the numbers still available:')
+for n in range(1, 20):
+    if n in numbers_taken:
+        continue
+    print(n)
+
+# functions
+# functions break up the program into manageable chunks and help organize your program better
+# functions can be reused
+def banana():
+    print('I like bananas')
+
+banana()
+
+def bitcoin_to_usd(btc):
+    amount = btc * 527
+    print(amount)
+
+bitcoin_to_usd(3.75)
+
+# return
+# return allows you to save a value for later use
+def allowed_dating_age(my_age):
+    girls_age = my_age / 2 + 7
+    return girls_age
+
+my_dating_age = allowed_dating_age(27)
+print('I can date girls', my_dating_age, 'years old or older')
+
+# buckys age table test
+for x in range(15, 61):
+    print('a person at the age of', x, 'is allowed to date a person as young as', allowed_dating_age(x))
+
+# default arguments
+# arguments are the things inside () in functions
+def get_gender(sex='Unknown'):
+    if sex is 'm':
+        sex = 'Male'
+    elif sex is 'f':
+        sex = 'Female'
+    print(sex)
+
+get_gender('m')
+get_gender('f')
+get_gender()
+
+# variable scope
+# a variable created outside a function will work for any function that comes after it
+# a variable created inside a function, will only work for that function
+
+# keyword arguments
+def pizza_maker(who='Joe', type='plain', when='Friday'):
+    print(who, type, when)
+
+pizza_maker()
+pizza_maker('doug', 'extra cheese', 'Saturday')
+
+# it doesn't matter what order you type the arguments in
+# and it will fill in the defaults if you leave any out
+pizza_maker(when='Sunday', type='avocado')
+
+# how to make a function that takes any amount of arguments
+# it's common among python programmers to name the flexible argument args
+def add_numbers(*args):
+    total = 0
+    for a in args:
+        total += a
+    print(total)
+
+add_numbers(5, 10)
+
+# unpacking arguments
+def health_calculator(age, healthy_foods_eaten, junk_foods_eaten):
+    answer = (100-age) + (healthy_foods_eaten*3) - (junk_foods_eaten*2)
+    print(answer)
+
+kyles_data = [27, 10, 1]
+
+# the old way to add this data in to the function would be
+health_calculator(kyles_data[0], kyles_data[1], kyles_data[2])
+
+# quicker way to do the above would be to unpack the argument list
+# like so
+health_calculator(*kyles_data)
+
+# set
+# sets are like a collection of items but can't have any duplicates like a list can
+groceries = {'bananas', 'apples', 'avocados', 'apples', 'tea'}
+print(groceries)
+
+if 'apples' in groceries:
+    print('You already have apples')
+else:
+    print('Apples are a great idea')
+
+# dictionary
+# in a real life dictionary we have words and definitions
+# but in a python dictionary we have keys and values
+beer = {'blue point': ' blueberry', 'budweiser': ' bud light', 'blue moon': ' belgian white'}
+print(beer)
+print(beer['blue point'])
+
+# .items() makes it recognized as a set or a collection of stuff not just a variabe
+for k, v in beer.items():
+    print(k + v)
+
+# modules
