@@ -277,3 +277,58 @@ for k, v in beer.items():
     print(k + v)
 
 # modules
+# modules are a file that you store code in,
+# such as a function, and you can import it into another file,
+# so that you don't have to re-write it
+import testmoduletutorial
+
+import random
+
+testmoduletutorial.my_first_module()
+
+x = random.randrange(1, 1000)
+print(x)
+
+# downloading an image from the web
+# import random was already done above, but if not you would need to
+import urllib.request
+
+def download_web_image(url):
+    name = random.randrange(1, 1000)
+    full_name = str(name) + '.jpg'
+    urllib.request.urlretrieve(url, full_name)
+
+# the image we download will be in a tab under our projects
+# IF YOU REMOVE THE NUMBER SIGN BELOW AND RUN THE PROGRAM, IT WILL DOWNLOAD THE IMAGE EVERY TIME YOU RUN IT
+# I BELIEVE BECAUSE IT SAVES IT AS A RANDOM NUMBER NAME AND IT ONLY WON'T IF IT TRIES TO SAVE AS THAT NUMBER NAME AGAIN
+# download_web_image('https://thenewboston.com/photos/users/2/resized/23471ba4417d650505928a0b1f1fd8b1.jpg')
+
+# how to read and write files
+fw = open('sample.txt', 'w')
+fw.write('writing some stuff in my text file\n')
+fw.write('here is more text\n')
+fw.close()
+
+fr = open('sample.txt', 'r')
+text = fr.read()
+print(text)
+fr.close()
+
+# downloading files from the web
+# make url smaller and cleaner by storing it in a variable if you want
+from urllib import request
+
+goog_url = 'http://real-chart.finance.yahoo.com/table.csv?s=GOOG&a=07&b=19&c=2004&d=01&e=18&f=2016&g=m&ignore=.csv'
+
+def download_stock_data(csv_url):
+    response = request.urlopen(csv_url)
+    csv = response.read()
+    csv_str = str(csv)
+    lines = csv_str.split('\\n')
+    dest_url = r'goog.csv'
+    fx = open(dest_url, 'w')
+    for line in lines:
+        fx.write(line + '\n')
+    fx.close()
+
+download_stock_data(goog_url)
