@@ -4,7 +4,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def IrishCastles(max_pages):
+def irish_castles(max_pages):
     page = 1
     while page <= max_pages:
         url = 'https://www.reddit.com/r/castles/#page=' + str(page)
@@ -16,4 +16,4 @@ def IrishCastles(max_pages):
             print(href)
         page += 1
 
-IrishCastles(1)
+irish_castles(1)
