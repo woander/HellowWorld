@@ -5,9 +5,9 @@ import requests
 from bs4 import BeautifulSoup
 
 def irish_castles(max_pages):
-    page = 1
+    page = ''
     while page <= max_pages:
-        url = 'https://www.reddit.com/r/castles/#page=' + str(page)
+        url = 'https://www.reddit.com/r/castles/' + str(page)
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
